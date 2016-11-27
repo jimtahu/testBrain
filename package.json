@@ -1,0 +1,22 @@
+{
+  "name": "testbrain",
+  "version": "0.0.1",
+  "description": "Test Brain",
+  "main": "brain.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimtahu/testBrain.git"
+  },
+  "author": "jimtahu@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jimtahu/testBrain/issues"
+  },
+  "homepage": "https://github.com/jimtahu/testBrain#readme",
+  "dependencies": {
+    "synaptic": "^1.0.8"
+  }
+}
