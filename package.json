@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jimtahu/testBrain#readme",
   "dependencies": {
-    "synaptic": "^1.0.8"
+    "synaptic": "^1.0.8",
+    "twitter": "^1.7.0"
   }
 }
