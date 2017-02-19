@@ -1,5 +1,6 @@
 var keys = require('./botKeys');
 var twitter = require('twitter');
+var jsonfile = require('jsonfile');
 
 var planets = [];
 exports.planets=planets;
@@ -39,4 +40,8 @@ exports.getPlanets = function(){
         '/statuses/user_timeline.json',
         { screen_name: 'FermiPasteladox', count: 32 },
         processTweets );
+}
+
+exports.savePlanets = function( planets ){
+    jsonfile.writeFile( 'planetData.json', planets, { spaces: 2 }, function(err) { console.error(err); });
 }
