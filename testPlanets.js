@@ -1,4 +1,4 @@
 var planWriter=require('./getTweets');
 
-planWriter.getPlanets();
-planWriter.savePlanets( planWriter.planets );
+var planets = {};
+planWriter.getPlanets( planets, planWriter.savePlanets );

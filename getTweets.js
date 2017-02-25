@@ -2,10 +2,7 @@ var keys = require('./botKeys');
 var twitter = require('twitter');
 var jsonfile = require('jsonfile');
 
-var planets = [];
-exports.planets=planets;
-
-exports.getPlanets = function(){
+exports.getPlanets = function( planets, callBack=false ){
     var client = new twitter({
         consumer_key: keys.CONSUMER_KEY,
         consumer_secret: keys.CONSUMER_SECRET,
@@ -31,7 +28,7 @@ exports.getPlanets = function(){
                     id: getPlanetID(item.text),
                     life: getLife(item.text)
                 };
-                planets.push( planet );
+                planets[ planet.id ] = planet;
             }
         );
     };
@@ -40,6 +37,9 @@ exports.getPlanets = function(){
         '/statuses/user_timeline.json',
         { screen_name: 'FermiPasteladox', count: 32 },
         processTweets );
+    if( callBack ){
+        callBack( planets );
+    }
 }
 
 exports.savePlanets = function( planets ){
