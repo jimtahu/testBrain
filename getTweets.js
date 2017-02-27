@@ -24,11 +24,15 @@ exports.getPlanets = function( planets, callBack=false ){
     var processTweets = function( error, tweets, resp ){
         tweets.forEach(
             function( item, index, array ){
-                var planet = {
-                    id: getPlanetID(item.text),
-                    life: getLife(item.text)
-                };
-                planets[ planet.id ] = planet;
+                try {
+                    var planet = {
+                        id: getPlanetID(item.text),
+                        life: getLife(item.text)
+                    };
+                    planets[ planet.id ] = planet;
+                } catch( ex ) {
+                    console.error("Could not process tweet:" + item.text);
+                }
             }
         );
     };
