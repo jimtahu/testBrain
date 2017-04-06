@@ -1,0 +1,15 @@
+version: '3'
+volumes:
+    mongodb:
+services:
+    brain:
+        container_name: testbrain
+        image: jimtahu/testbrain
+        build: .
+        volumes:
+        - .:/code
+    mongo:
+        container_name: mongo
+        image: "mongo:latest"
+        volumes:
+           - mongodb:/data/db
